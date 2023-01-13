@@ -1,0 +1,681 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>Git</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='git'><span>Git</span></h1><ul><li><p><mark><strong><span>Commits</span></strong></mark><span>: the user-created checkpoints --&gt; each commit represents a version of the content at one point in time</span></p><ul><li><p><span>Git requires the user to </span><strong><span>supply commit message</span></strong><span> each time a commit is created</span></p></li><li><p><span>Git uses the commit IDs to refer to different versions of the files</span></p></li><li><p><code>git commit -m &quot;Commit message&quot;</code></p><ul><li><p><u><span>Message Structure</span></u></p><p><span>A commit messages consists of three distinct parts </span><u><span>separated by a blank line</span></u><span>: the title, an optional body and an optional footer. The layout looks like this:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">type: Subject &nbsp;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">body</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">footer</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 110px;"></div><div class="CodeMirror-gutters" style="display: none; height: 110px;"></div></div></div></pre><ul><li><span>Title: The title consists of the type of the message and subject. Subjects should be no greater than 50 characters, should </span><font color=red><strong><span>begin with a capital letter and do not end with a period</span></strong></font><span>. Use an </span><strong><span>imperative tone</span></strong><span> to describe what a commit does, rather than what it did. For example, use </span><strong><span>change</span></strong><span>; not changed or changes.</span></li><li><span>Body: Not all commits are complex enough to warrant a body, therefore it is optional and only used when a commit requires a bit of explanation and context. Use the body to explain the </span><u><strong><span>what</span></strong><span> and </span><strong><span>why</span></strong><span> of a commit</span></u><span>, </span><u><span>not the how</span></u><span>. When writing a body, the blank line between the title and the body is required and you should limit the length of each line to no more than 72 characters.</span></li><li><span>Fooster: The footer is optional and is used to </span><u><span>reference issue tracker IDs</span></u><span>.</span></li></ul></li><li><p><u><span>The Type</span></u></p><p><span>The type is contained within the title and can be one of these types:</span></p><ul><li><strong><span>feat:</span></strong><span> A new feature</span></li><li><strong><span>fix:</span></strong><span> A bug fix</span></li><li><strong><span>docs:</span></strong><span> Changes to documentation</span></li><li><strong><span>style:</span></strong><span> Formatting, missing semi colons, etc; no code change</span></li><li><strong><span>refactor:</span></strong><span> Refactoring production code</span></li><li><strong><span>test:</span></strong><span> Adding tests, refactoring test; no production code change</span></li><li><strong><span>chore:</span></strong><span> Updating build tasks, package manager configs, etc; no production code change</span></li></ul></li></ul></li><li><p><code>git log</code><span>: see all change commits history (from the recent commit)</span></p><p><code>git log -n &lt;number/k&gt;</code><span>: show the first k commits</span></p><p><code>git log -p</code><span>: has a flag that can be used to display the actual changes made to a file (combination of </span><code>git log</code><span> and </span><code>git diff</code><span>)</span></p><p><code>git log --stat</code><span>: give statistics about which files have changed in each commit</span></p><p><span>press </span><code>q</code><span> to stop viewing the git log output</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220601224228681.png" alt="image-20220601224228681" style="zoom: 50%;" /></p><p><span>(green plus: insertions; red minus: deletions)</span></p></li><li><p><code>git diff</code><span>: can compare different versions of a file within git </span><code>git diff &lt;commit ID-A&gt; &lt;commit ID-B&gt;</code><span> --&gt; operate on commits</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220601181012728.png" alt="image-20220601181012728" style="zoom:33%;" /></p><p><span>(red: removed; green: added; blue: not changed, remain the same)</span></p></li><li><p><code>git show &lt;commit ID&gt;</code><span>: show the changes of that commit without expressing its parents</span></p></li><li><p><code>git checkout &lt;commit ID&gt;</code><span>: reset all files back to how they were at the time when that commit was made</span></p></li><li><p><code>git clone &lt;URL of a repository&gt;</code><span>: instead of only downloading files from the recent commit, want to dowload the entire history</span></p><p><span>If you make changes to the cloned repository, </span><font color=red><strong><span>the original will not change</span></strong></font><span>.</span></p></li><li><p><font color=blue><strong><span>make </span><em><span>one commit per logical change (single change)</span></em></strong></font><span> --&gt; each commit has one purpose that can be easily understood + </span><font color=blue><strong><span>never do too much work without committing</span></strong></font></p></li><li><p><strong><span>Eg.</span></strong><span> </span><strong><span>You found three typos in your README. You fix and commit the first.</span></strong></p><p><span>This commit seems too small. It would be better to fix all three typos, then commit. That way, your history won&#39;t get too cluttered with typo fixes. Plus, you don’t need to worry about introducing bugs to a README, so bundling changes together is more likely to be a good idea.</span></p><p><strong><span>You commit all the changes required to add a new feature, which you’ve been working on for an hour.</span></strong></p><p><span>This is probably a good size for a commit. All the work is on a single feature, so the commit will have a clear logical purpose. After an hour, the diff will probably have a fair amount of content in it, but not too much to understand.</span></p><p><span>On the other hand, sometimes after working for an hour you’ll have run into more than one natural committing point, in which case you would want to break the feature up into smaller commits. Because of this, “too big” could also be a reasonable answer here.</span></p><p><strong><span>You fix two small bugs in different functions and commit them both at once.</span></strong></p><p><span>This commit is probably too big. It would have been better to commit after the first bug fix, since the two bug fixes aren&#39;t related to each other.</span></p></li><li><p><strong><span>Track across Inter-related Files</span></strong><span> --&gt; multiple-file commits (save multiple files in one commit)</span></p><ul><li><strong><span>Repository</span></strong><span>: a collection of related files</span></li><li><span>Each time a commit is made, all files in the repository will be tracked</span></li></ul></li></ul></li><li><p><strong><mark><span>Git Errors and Warnings</span></mark></strong></p><ul><li><strong><span>Should not be doing an octopus</span></strong>
+<span>Octopus is a strategy Git uses to </span><font color=blue><strong><span>combine many different versions of code together</span></strong></font><span>. This message can appear if you try to use this strategy in an inappropriate situation.</span></li><li><strong><span>You are in &#39;detached HEAD&#39; state</span></strong>
+<font color=blue><strong><span>HEAD is what Git calls the commit you are currently on.</span></strong></font><span> You can “detach” the HEAD by switching to a previous commit. Despite what it sounds like, it’s actually not a bad thing to detach the HEAD. Git just warns you so that you’ll realize you’re doing it.</span></li></ul></li><li><p><strong><mark><span>Repository</span></mark></strong></p><ul><li><p><code>.git</code><span> is a hidden file that the user doesn&#39;t need to directly interact with --&gt; can use </span><code>ls -a</code><span> to see all file (hidden and not hidden)</span></p></li><li><p><code>git init</code><span>: to initialize a repository</span></p></li><li><p><code>git status</code><span>: see the stages of commits and tracked files</span></p></li><li><p><span>Staging area:</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220605221546304.png" alt="image-20220605221546304" style="zoom: 67%;" /></p><p><span>--&gt; </span><font color=blue><strong><span>used to control exactly what changes go into each commit</span></strong></font></p><ul><li><p><code>git add</code><span>: add files to the staging area</span></p><p><span>(If you accidentally add a file to the staging area, you can remove it using </span><code>git reset &lt;file name&gt;</code><span>)</span></p></li></ul></li><li><p><span>Compare changes between working directory, staging area and repository</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220611001824674.png" alt="image-20220611001824674" style="zoom:50%;" /></p><ul><li><code>git diff</code><span>: get the changes between working directory and staging area (can be used for commits and branches)</span></li><li><code>git diff --stages</code><span>: get the changes between staging area and repository (the most recent commit)</span></li><li><code>git reset --hard</code><span>: discard any changes in either the working directory or the staging area</span></li></ul></li></ul></li><li><p><strong><mark><span>Branches</span></mark></strong></p><ul><li><p><u><strong><span>Uses:</span></strong></u></p><ul><li><p><u><span>Solo project</span></u><span>: want to keep another experimental version of the project or the project in another language or work on a new feature --&gt; </span><strong><span>maintain parallel versions</span></strong><span> of the code --&gt; </span><font color=blue><strong><span>Context Switching</span></strong></font></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220611004539803.png" alt="image-20220611004539803" style="zoom:50%;" /></p><ul><li><p><u><span>Collaboration</span></u></p><ul><li><span>Make a new branch for every feature / bug-fix --&gt; after the process completes, the author can either update master branch to point to the tip of the new branch (combine with the current master using </span><code>git merge</code><span>)</span></li></ul></li></ul></li></ul></li></ul><p><span>--&gt; Git allows to create labels for commits --&gt; these labels are called </span><em><strong><span>Branches</span></strong></em></p><ul><li><p><u><span>Master</span></u><span>: the main branch in most Git repositories</span></p></li><li><p><span>If checkout to a branch and make a commit, the branch label automatically updates to the new commit</span></p></li><li><p><u><span>Tip of the branch:</span></u><span> the most recent commit in the branch</span></p></li><li><p><code>git branch</code><span>: show the current branches (the * means the branch that is currently checked out)</span></p><p><code>git branch -a</code><span>: list all remote branches (including </span><code>master</code><span>, </span><code>origin/master</code><span>...)</span></p></li><li><p><code>git branch &lt;name&gt;</code><span>: create a new branch with a new name </span><font color=blue><span>--&gt; </span><strong><span>该branch里会copy master branch的所有代码文件</span></strong></font></p></li><li><p><code>git checkout &lt;branch name&gt;</code><span>: switch from the current branch to another branch</span></p></li><li><p><code>git log --graph --oneline &lt;branch 1&gt; &lt;branch 2&gt;</code><span>: see the visual representation of the overall commit history of selected branches </span></p></li><li><p><code>git checkout -b &lt;branch name&gt;</code><span>: implement </span><code>git branch</code><span> and </span><code>git checkout &lt;branch&gt;</code><span> simultaneously --&gt; 这样这个时候的commit就会自动归属于这个新的branch里</span></p></li><li><p><strong><span>Merging</span></strong></p><ul><li><p><u><span>Combing simple files:</span></u></p><p><span>Same lines in multiple versions: on the final file</span></p><p><span>Different lines in multiple versions: unknown (need to decide which is deleted from the original version </span><u><span>(not wanted)</span></u><span> or which is added to the original version </span><u><span>(keep)</span></u><span>)</span></p></li><li><p><u><span>Merge two branches together</span></u><span>:</span></p><ul><li><p><span>The merged version is also a commit --&gt; store information about both of its parents</span></p><p><span>Eg. Merge the coin branch into the master branch --&gt; the merged commit is the tip of the master branch --&gt; have all changes merged as well --&gt; can delete the coin branch (delete the label, not the commits in coin branch) </span></p></li><li><p><span>After merging, the commits will show with the timestamp (might be interleaved)</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220711032633870.png" alt="image-20220711032633870" style="zoom: 25%;" /></p></li><li><p><span>If a branch is deleted and leaves some commits unreachable from existing branches, those commits will continue to be accessible by commit id, until Git’s garbage collection runs. This will happen automatically from time to time, unless you actively turn it off. You can also run this process manually with </span><code>git gc</code><span>.</span></p></li><li><p><code>git merge &lt;brach-into&gt; &lt;branch-from&gt;</code><span> --&gt; merge </span><code>branch-from</code><span> into </span><code>branch-into</code></p></li><li><p><code>git branch -d &lt;branch name&gt;</code><span>: delete a branch (only label, not commits) --&gt; commits are now available from </span><code>branch-info</code></p><p><font color=blue><strong><span>Note.</span></strong></font><span> After deleting a branch, the whole commit history can be view by </span><code>git log --graph --oneline</code></p></li></ul></li><li><p><u><span>Merge conflict</span></u></p><p><span>--&gt; when git doesn&#39;t know which line should be merged into the new file (cause: different lines in multiple versions)</span></p><p><span>--&gt; ask the user whenver there&#39;s any ambiguity</span></p><ul><li><p><span>Example</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220711032928555.png" referrerpolicy="no-referrer" alt="image-20220711032928555"></p><p><span>--&gt; </span><code>master</code><span> and </span><code>easy-mode</code><span> branches both change the same general area in </span><code>game.js</code><span> </span></p><p><span>--&gt; Solution: find the conflit in the file and solve it</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220711033705353.png" alt="image-20220711033705353" style="zoom:50%;" /></p><ul><li><p><span>First section (marked </span><code>head</code><span>): my current code in </span><code>easy-mode</code><span> branch</span></p><p><span>Second section: the original version</span></p><p><span>Bottom section (marked </span><code>master</code><span>): the code in </span><code>master</code><span> branch right now</span></p></li><li><p><span>Solution</span></p><ul><li><p><span>S1: Look at the code and understand what others want to change in the code</span></p></li><li><p><span>S2: Discuss with them to determine the change</span></p></li><li><p><span>S3: Resolve the conflict</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220711183423618.png" alt="image-20220711183423618" style="zoom: 67%;" /></p></li><li><p><span>S4: Commit the solution to let git know</span></p></li></ul></li></ul></li></ul></li></ul></li><li><p><strong><span>Update Local Copies of Remote Branches</span></strong></p><p><span>Using </span><code>git clone</code><span> gets a local branch same as the remote one on GitHub and also </span><em><u><span>gets a copy of the last known position</span></u></em><span> of that branch on the remote</span></p><p><code>git fetch</code><span>: 用于从远程获取代码库，该命令执行完后需要执行 git merge 远程分支到你所在的分支。(used when you have different changes on each repository, with one changed locally and another remote) --&gt; update the local copy of the remote branch to see changes from GitHub --&gt; update </span><code>origin/master</code><span> branch, which needs merging to </span><code>master</code><span> branch</span></p><p><code>git fetch &lt;branch&gt;</code><span>: update all local copies of every branch for the origin remote</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220814222340235.png" alt="image-20220814222340235" style="zoom: 33%;" /></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220814223242447.png" alt="image-20220814223242447" style="zoom:40%;" /></p><p>&nbsp;</p></li></ul></li><li><p><mark><strong><span>GitHub</span></strong></mark></p><p><span>--&gt; share an entire git repository with others (interact with git)</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220712001142476.png" alt="image-20220712001142476" style="zoom: 25%;" /></p><ul><li><p><u><span>Syncing Repositories</span></u></p><ul><li><p><span>Information sent and received is in the form of git commits, so changes must </span><strong><u><span>be staged and commited</span></u></strong><span> before they can be sent</span></p></li><li><p><strong><span>Remote repository</span></strong><span> (by git): store the location of a repository that the user wants to send and receive new commits to and from (a </span><u><span>reference</span></u><span>)</span></p></li><li><p><span>Syncing doesn&#39;t happen automatically. How to sync between the local copy of a repository and the one hosted on GitHub?</span></p><ul><li><span>S1: Create an empty repository on GitHub</span></li><li><span>S2: Add the repository as a remote to the local repository</span></li><li><span>S3: </span><code>push</code><span> and </span><code>pull</code><span> data for interaction --&gt; </span><code>push</code><span> a branch will automatically send all commits on that branch to GitHub</span></li></ul><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220711224805021.png" referrerpolicy="no-referrer" alt="image-20220711224805021"></p></li><li><p><code>git remote</code><span>: view current remotes</span></p><p><code>git remote add &lt;name&gt; &lt;URL of the GitHub repository&gt;</code><span>: the name is within the local repository to refer to the repository on GitHub (If there is only one remote, it&#39;s standard to name it </span><code>origin</code><span>)</span></p><p><code>git remote -v</code><span>: </span><code>v</code><span> is for </span><code>verbose</code><span> --&gt; output more information insternt remote names</span></p><p><code>git push &lt;remote name to send change&gt; &lt;local branch name to push&gt;</code><span>: send local changes to the remote --&gt; copy all commits reachable from the local branch to the remote</span></p><p><code>git pull &lt;remote name to receive change&gt; &lt;local branch name to pull&gt;</code><span>: receive changes made from GitHub</span></p><p><font color=red><strong><span>git pull = git fetch + git merge !!</span></strong></font></p></li></ul></li><li><p><u><span>Forking a Repository</span></u></p><p><span>--&gt; get a copy of others&#39; GitHub repositories directly on the GitHub servers without pulling down the code to the local machine first (like </span><code>git clone</code><span>) and </span><u><span>git automatically sets up a remote (origin)</span></u></p><ul><li><p><code>git clone</code><span>:</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220808223432581.png" alt="image-20220808223432581" style="zoom: 33%;" /></p><p><code>fork</code><span>:</span></p><p><img src="/Users/xinyuzhang/Library/Application Support/typora-user-images/image-20220808223605417.png" alt="image-20220808223605417" style="zoom:50%;" /></p><p><span>--&gt; count the number of people forking the repository; easier to suggest changes back to the original repository</span></p></li></ul></li></ul></li></ul></div></div>
+</body>
+</html>
